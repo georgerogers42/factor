@@ -17,7 +17,7 @@ SINGLETON: gdb-disassembler
         "attach " write
         current-process-handle number>string print
         "disassemble " write
-        [ number>string write bl ] bi@
+        [ number>string write ] [ [ "," write ] compose ] keep bi*
     ] with-file-writer ;
 
 : gdb-binary ( -- string ) "gdb" ;
